@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   TrendingUp, 
@@ -66,7 +66,7 @@ const CompoundSimulator = ({ allocation }: { allocation: { stocks: number, bonds
   const [y, setY] = useState(25);
 
   // 當配置改變時，同步更新利率
-  useMemo(() => {
+  useEffect(() => {
     setR(Number(autoRate.toFixed(1)));
   }, [autoRate]);
 
