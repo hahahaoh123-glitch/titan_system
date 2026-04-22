@@ -32,7 +32,6 @@ import {
   Pie,
   Cell
 } from 'recharts';
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // UI Components
 const Card = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (

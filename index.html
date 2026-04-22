@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TITAN X Finance</title>
   </head>
-  <body>
+  <body style="margin: 0; background-color: #020202;">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
+    <!-- Fallback if root remains empty -->
+    <script>
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        if (root && root.innerHTML === "") {
+          console.log("Empty root detected, trying alternative load...");
+          root.innerHTML = '<div style="color: #475569; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">系統啟動中... (若持續此畫面請重新整理)</div>';
+        }
+      }, 3000);
+    </script>
   </body>
 </html>
-
