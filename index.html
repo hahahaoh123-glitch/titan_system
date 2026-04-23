@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TITAN X Finance</title>
   </head>
-  <body style="margin: 0; background-color: #020202;">
-    <div id="root"></div>
-    <!-- 移除開頭斜線，確保相對路徑加載 -->
-    <script type="module" src="src/main.tsx"></script>
+  <body style="margin: 0; background-color: #020202; color: white; font-family: sans-serif;">
+    <div id="root">
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; gap: 10px;">
+        <div style="font-size: 24px; font-weight: bold; color: #00f2ff;">TITAN X 系統啟動中...</div>
+        <div style="font-size: 14px; color: #64748b;">(如果此畫面停留超過 10 秒，請嘗試重新整理或檢查瀏覽器主控台)</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // 偵錯輔助：檢查腳本是否載入
+      window.addEventListener('error', function(e) {
+        if (e.target.tagName === 'SCRIPT') {
+          console.error('Critical script load failure:', e.target.src);
+          document.getElementById('root').innerHTML = '<div style="padding: 20px; color: #f87171;">腳本載入失敗 (404/Network Error) - 請聯繫開發者</div>';
+        }
+      }, true);
+    </script>
   </body>
 </html>
